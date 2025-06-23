@@ -1,0 +1,56 @@
+{
+  "name": "liquid-glass-style",
+  "version": "0.1.0",
+  "description": "A modern liquid glass style UI component library similar to ELEMENTS PLUS",
+  "main": "dist/liquid-glass-style.umd.js",
+  "module": "dist/liquid-glass-style.es.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "server": "node -r ts-node/register src/server/index.ts",
+    "dev": "vite serve examples --config vite.config.ts",
+    "build": "vite build",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "test": "vitest run",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx"
+  },
+  "keywords": [
+    "liquid glass",
+    "glassmorphism",
+    "ui components",
+    "vue",
+    "component library"
+  ],
+  "author": "",
+  "license": "MIT",
+  "overrides": {
+    "rimraf": "^5.0.0",
+    "glob": "^10.0.0",
+    "@humanwhocodes/config-array": "npm:@eslint/config-array@^0.17.1",
+    "@humanwhocodes/object-schema": "npm:@eslint/object-schema@^2.1.4",
+    "inflight": "npm:lru-cache@^10.0.0"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@vitejs/plugin-vue": "^4.6.0",
+    "@vue/test-utils": "^2.4.1",
+    "cors": "^2.8.5",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.20.0",
+    "express": "^5.1.0",
+    "sass": "^1.66.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vitepress": "^1.0.0-rc.4",
+    "vitest": "^0.34.4",
+    "vue-tsc": "^1.8.15"
+  }
+}
