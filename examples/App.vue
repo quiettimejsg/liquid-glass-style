@@ -1,43 +1,59 @@
 <template>
-  <div class="app-container">
-    <h1>Liquid Glass Style 组件示例</h1>
+  <ThemeProvider>
+    <div class="app-container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>Liquid Glass Style 组件示例</h1>
+        <lg-button @click="toggleDarkMode" variant="glass" size="small">
+          {{ isDark ? '切换到浅色模式' : '切换到深色模式' }}
+        </lg-button>
+      </div>
     
     <section class="example-section">
       <h2>基础玻璃态按钮</h2>
-      <div class="button-group">
+      <ResponsiveContainer>
+        <div class="button-group">
         <lg-button>默认按钮</lg-button>
         <lg-button type="success">成功按钮</lg-button>
         <lg-button type="warning">警告按钮</lg-button>
         <lg-button type="danger">危险按钮</lg-button>
         <lg-button type="info">信息按钮</lg-button>
       </div>
+      </ResponsiveContainer>
+
     </section>
 
     <section class="example-section">
       <h2>不同尺寸</h2>
-      <div class="button-group">
+      <ResponsiveContainer>
+        <div class="button-group">
         <lg-button size="small">小型按钮</lg-button>
         <lg-button size="medium">中型按钮</lg-button>
         <lg-button size="large">大型按钮</lg-button>
       </div>
+      </ResponsiveContainer>
+
     </section>
 
     <section class="example-section">
       <h2>不同变体</h2>
-      <div class="button-group">
+      <ResponsiveContainer>
+        <div class="button-group">
         <lg-button variant="glass">玻璃态</lg-button>
         <lg-button variant="filled">填充式</lg-button>
         <lg-button variant="outlined">描边式</lg-button>
         <lg-button variant="text">文本式</lg-button>
       </div>
+      </ResponsiveContainer>
     </section>
 
     <section class="example-section">
       <h2>禁用状态</h2>
-      <div class="button-group">
+      <ResponsiveContainer>
+        <div class="button-group">
         <lg-button disabled>禁用按钮</lg-button>
         <lg-button type="success" disabled>禁用成功按钮</lg-button>
       </div>
+      </ResponsiveContainer>
     </section>
 
     <section class="example-section">
@@ -76,15 +92,29 @@
       </div>
     </section>
   </div>
+  </ThemeProvider>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, inject , computed } from 'vue';
 import LgButton from '@/components/button/Button.vue';
 import LgCard from '@/components/card/Card.vue';
+import ResponsiveContainer from '@/components/ResponsiveContainer.vue';
+import ThemeProvider from '@/components/ThemeProvider.vue';
 import { calculateLightRefraction } from '@/services/optical-calculator';
 
 
+
+// 主题切换相关
+const toggleTheme = inject<() => void>('toggleTheme', () => {});
+const isDarkMode = inject<Ref<boolean>>('isDarkMode', ref(false));
+const isDark = computed(() => isDarkMode?.value || false);
+
+const toggleDarkMode = () => {
+  if (toggleTheme) {
+    toggleTheme();
+  }
+};
 
 // 滑块引用
 const intensitySlider = ref<HTMLInputElement | null>(null);

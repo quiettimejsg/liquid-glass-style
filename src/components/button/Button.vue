@@ -153,18 +153,31 @@ const variantClass = computed(() => `lg-button--${props.variant}`);
 
 // 尺寸样式
 .lg-button--small {
-  padding: 6px 12px;
-  font-size: 12px;
+  padding: clamp(4px, 2vw, 6px) clamp(8px, 4vw, 12px);
+  font-size: clamp(10px, 3vw, 12px);
 }
 
 .lg-button--medium {
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: clamp(6px, 3vw, 8px) clamp(12px, 5vw, 16px);
+  font-size: clamp(12px, 4vw, 14px);
 }
 
 .lg-button--large {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: clamp(8px, 4vw, 10px) clamp(16px, 6vw, 20px);
+  font-size: clamp(14px, 5vw, 16px);
+}
+
+@media (max-width: 768px) {
+  .lg-button {
+    flex: 1 0 auto;
+    min-width: calc(50% - 8px);
+  }
+}
+
+@media (max-width: 480px) {
+  .lg-button {
+    min-width: 100%;
+  }
 }
 
 // 禁用样式
@@ -310,7 +323,7 @@ const variantClass = computed(() => `lg-button--${props.variant}`);
 }
 
 // 颜色变量定义
-:root {
+:root:not(.dark) {
   --color-primary: #409eff;
   --color-success: #67c23a;
   --color-warning: #e6a23c;
@@ -321,6 +334,23 @@ const variantClass = computed(() => `lg-button--${props.variant}`);
   --glass-hover-bg: rgba(255, 255, 255, 0.25);
   --custom-color: #000000;
   --custom-color-rgb: 0, 0, 0;
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+.dark {
+  --color-primary: #66b1ff;
+  --color-success: #85ce61;
+  --color-warning: #f0c05a;
+  --color-danger: #f88a8a;
+  --color-info: #b1b4b8;
+  --glass-bg: rgba(30, 30, 30, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-hover-bg: rgba(50, 50, 50, 0.5);
+  --custom-color: #ffffff;
+  --custom-color-rgb: 255, 255, 255;
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
 }
 
 // 类型颜色映射

@@ -8,6 +8,8 @@
 - **.button-group**: 按钮组容器，使用flex布局实现按钮水平排列
 - **.calculator-container**: 光学计算区域容器，包含控制项和结果展示
 - **.card-grid**: 卡片网格容器，使用grid布局实现卡片自动排列
+- **.responsive-container**: 响应式容器，实现按钮组的自适应布局和屏幕边缘检测换行
+- **.theme-provider**: 主题提供器容器，提供深色/浅色模式切换支持
 
 ### 按钮组件(LgButton)相关类
 - **.lg-button**: 按钮基础类
@@ -114,7 +116,45 @@
 </LgCard>
 ```
 
-### 3. 光学计算功能
+### 3. 响应式容器(ResponsiveContainer)
+```vue
+<ResponsiveContainer>
+  <div class="button-group">
+    <lg-button>按钮1</lg-button>
+    <lg-button>按钮2</lg-button>
+    <lg-button>按钮3</lg-button>
+    <lg-button>按钮4</lg-button>
+    <lg-button>按钮5</lg-button>
+  </div>
+</ResponsiveContainer>
+```
+
+### 4. 主题提供器(ThemeProvider)
+```vue
+<ThemeProvider>
+  <div class="app-container">
+    <!-- 应用内容 -->
+    <lg-button @click="toggleDarkMode" variant="filled" size="small">
+      {{ isDark ? '切换到浅色模式' : '切换到深色模式' }}
+    </lg-button>
+  </div>
+</ThemeProvider>
+
+<script setup>
+import { inject, computed } from 'vue';
+
+const toggleTheme = inject<() => void>('toggleTheme');
+const isDarkMode = inject<Ref<boolean>>('isDarkMode');
+const isDark = computed(() => isDarkMode?.value || false);
+
+const toggleDarkMode = () => {
+  if (toggleTheme) {
+    toggleTheme();
+  }
+};
+</script>
+
+### 5. 光学计算功能
 ```typescript
 // 导入光学计算函数
 import { calculateLightRefraction } from '@/services/optical-calculator';
@@ -160,3 +200,5 @@ const calculateOptics = () => {
 - **--intensity**: 光线强度
 - **--custom-color**: 自定义颜色
 - **--custom-color-rgb**: 自定义颜色的RGB值
+- **--bg-color**: 背景色（深色/浅色模式自适应）
+- **--text-color**: 文本色（深色/浅色模式自适应）
