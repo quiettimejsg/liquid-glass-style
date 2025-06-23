@@ -334,13 +334,11 @@ h2 {
 
 .example-card h3 {
   margin-bottom: 0.5rem;
-  color: var(--text-color);
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .example-card p {
-  color: var(--text-color);
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
 }
 </style>

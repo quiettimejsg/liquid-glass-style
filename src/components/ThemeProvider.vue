@@ -48,16 +48,10 @@ const updateDocumentClass = () => {
 .dark-mode {
   --bg-color: #1a1a1a;
   --text-color: #ffffff;
-  --glass-bg: rgba(30, 30, 30, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 :not(.dark-mode) {
   --bg-color: #f5f5f5;
   --text-color: #333333;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.1);
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 </style>
