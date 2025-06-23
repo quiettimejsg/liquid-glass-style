@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "CommonJS",
@@ -13,10 +16,8 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "types": ["vue"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "examples/**/*.ts", "examples/**/*.vue"],
   "exclude": ["node_modules"]
 }
