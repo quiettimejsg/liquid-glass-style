@@ -51,7 +51,7 @@ const updateDocumentClass = () => {
 }
 
 :not(.dark-mode) {
-  --bg-color: #ffffff;
-  --text-color: #000000;
+  --bg-color: #f5f5f5;
+  --text-color: #333333;
 }
 </style>
