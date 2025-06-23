@@ -20,5 +20,25 @@ const containerStyle = computed(() => ({
 .responsive-container {
   margin: 0 auto;
   padding: 0 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1200px) {
+  .responsive-container {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .responsive-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  .responsive-container {
+    max-width: 100%;
+  }
 }
 </style>

@@ -110,7 +110,7 @@ const resetLightEffect = () => {
 }
 
 .lg-card:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow);
   transform: translateY(-2px);
 }
 </style>
