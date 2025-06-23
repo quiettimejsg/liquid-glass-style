@@ -1,12 +1,19 @@
 <template>
   <ThemeProvider>
     <div class="app-container">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <h1>Liquid Glass Style 组件示例</h1>
-        <lg-button @click="toggleDarkMode" variant="glass" size="small">
-          {{ isDark ? '切换到浅色模式' : '切换到深色模式' }}
-        </lg-button>
-      </div>
+        <!-- 移除 flex 布局，因为 flex 布局下 <br> 标签不会生效 -->
+        <div>
+          <h1>Liquid Glass Style 组件示例</h1>
+          <!-- 若需要间距，可使用 margin 替代 <br> -->
+          <!-- 增加按钮所在 div 的上外边距，扩大按钮和下面元素的间距 -->
+          <div style="margin-top: 2rem;">
+            <ResponsiveContainer> <!-- 添加 ResponsiveContainer -->
+              <lg-button @click="toggleDarkMode" variant="glass" size="small">
+                {{ isDark ? '切换到浅色模式' : '切换到深色模式' }}
+              </lg-button>
+            </ResponsiveContainer> <!-- 闭合 ResponsiveContainer -->
+          </div>
+        </div>
     
     <section class="example-section">
       <h2>基础玻璃态按钮</h2>

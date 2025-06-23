@@ -32,9 +32,9 @@ provide('isDarkMode', isDarkMode);
 // 更新文档类名
 const updateDocumentClass = () => {
   if (isDarkMode.value) {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.add('dark-mode');
   } else {
-    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.remove('dark-mode');
   }
 };
 </script>
